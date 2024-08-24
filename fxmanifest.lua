@@ -16,5 +16,9 @@ server_scripts {
 }
 
 shared_scripts {
-    'config.lua'
-} 
+    'config.lua',
+    '@PolyZone/client.lua',
+    '@PolyZone/BoxZone.lua',
+    '@oxmysql/lib/MySQL.lua',
+}
+
