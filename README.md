@@ -19,7 +19,7 @@ This script is designed for servers where EMS or doctors are not available. Play
 - **Shoutouts:** Big thanks to @hh_aidoc for the fork. https://github.com/hhfw1/hh_aidoc
 
 # Changelog:
-## V1.8 Changelog
+## [1.8.0]  Changelog 2024-06-06
 
 New Features:
 EMS Timer Added: A new timer system has been integrated, providing real-time updates on EMS arrival times. If no response after 2x the quoted time, an automatic recall will be triggered to ensure prompt assistance.
@@ -35,7 +35,7 @@ These enhancements are all about making our EMS system more efficient and respon
 
 
 
-## [1.2.0] - 2023-06-06
+## [1.2.0] - 2024-06-06
 
 ### Added
 - Vehicle Emergency Lights and Seirens options added to config.  
@@ -44,7 +44,7 @@ These enhancements are all about making our EMS system more efficient and respon
 - The NPC vehicle goes back to original spawn point
 
 
-## [1.1.0] - 2023-06-06
+## [1.1.0] - 2024-06-06
 
 ### Added
 - Configurable notification system support:
@@ -63,7 +63,7 @@ These enhancements are all about making our EMS system more efficient and respon
 - Resolved issues with the EMS ped getting stuck behind obstacles during navigation
 - Fixed incorrect version comparison in the update notification system
 
-## [1.0.0] - 2023-05-28
+## [1.0.0] - 2024-05-28
 
 ### Added
 - Initial release of the Vibes EMS script
