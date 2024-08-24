@@ -4,7 +4,7 @@ game 'gta5'
 
 description 'Keekay_YKTV'
 
-version '1.2.0'
+version '1.8.0'
 
 
 client_scripts {
