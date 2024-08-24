@@ -19,7 +19,7 @@ This script is designed for servers where EMS or doctors are not available. Play
 - **Shoutouts:** Big thanks to @hh_aidoc for the fork. https://github.com/hhfw1/hh_aidoc
 
 # Changelog:
-## [1.8.0]  Changelog 2024-06-06
+## [1.8.0]   2024-06-24
 
 New Features:
 EMS Timer Added: A new timer system has been integrated, providing real-time updates on EMS arrival times. If no response after 2x the quoted time, an automatic recall will be triggered to ensure prompt assistance.
