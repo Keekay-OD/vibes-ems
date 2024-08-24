@@ -19,6 +19,21 @@ This script is designed for servers where EMS or doctors are not available. Play
 - **Shoutouts:** Big thanks to @hh_aidoc for the fork. https://github.com/hhfw1/hh_aidoc
 
 # Changelog:
+## V1.8 Changelog
+
+New Features:
+EMS Timer Added: A new timer system has been integrated, providing real-time updates on EMS arrival times. If no response after 2x the quoted time, an automatic recall will be triggered to ensure prompt assistance.
+
+Distance & Miles Ox Timer: Implemented a timer that accounts for the distance and miles to the incident scene, helping EMS units optimize their routes and response times.
+
+Commands & Checks:
+EMS Manual Command: EMS personnel can now manually command their systems for more precise operations. /ems
+
+EMS Arrive Check: A new feature to verify when EMS arrives on the scene, ensuring that all incidents are logged and responded to accurately. Checks if the player has been revived
+
+These enhancements are all about making our EMS system more efficient and responsive. Stay safe, and keep the good vibes rolling!
+
+
 
 ## [1.2.0] - 2023-06-06
 
