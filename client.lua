@@ -9,7 +9,7 @@ local spam = true
 
 
 if Config.UseHelpCommand then
-    RegisterCommand("help", function(source, args, raw)
+    RegisterCommand("ems", function(source, args, raw)
         if (QBCore.Functions.GetPlayerData().metadata["isdead"]) or (QBCore.Functions.GetPlayerData().metadata["inlaststand"]) and spam then
             QBCore.Functions.TriggerCallback('vibes-ems:docOnline', function(EMSOnline, hasEnoughMoney)
                 if EMSOnline <= Config.Doctor and hasEnoughMoney and spam then
@@ -123,12 +123,49 @@ function SpawnVehicle()
         SetBlipColour(mechBlip, 5)
 
         PlaySoundFrontend(-1, "Text_Arrive_Tone", "Phone_SoundSet_Default", 1)
-        Wait(2000)
+        
+        Wait(2000) --time to wait before sending help. 
         TaskVehicleDriveToCoord(mechPed, mechVeh, playerCoords.x, playerCoords.y, playerCoords.z, 20.0, 0, GetEntityModel(mechVeh), 524863, 2.0)
         originalSpawnLocation = closestSpawn 
         test = mechVeh
         test1 = mechPed
         Active = true
+
+        -- Calculate distance in miles
+        local distanceInMeters = #(vector3(closestSpawn.x, closestSpawn.y, closestSpawn.z) - playerCoords)
+        local distanceInMiles = distanceInMeters * 0.000621371
+
+        -- Estimate time of arrival (assuming average speed of 60 mph)
+        local estimatedTimeInHours = distanceInMiles / 60
+        local estimatedTimeInSeconds = estimatedTimeInHours * 3600
+
+        -- Set up timer
+        local timer = 0
+        local timerActive = true
+
+        Citizen.CreateThread(function()
+            while timerActive do
+                Citizen.Wait(1000)
+                timer = timer + 1
+                
+                -- Check if timer has exceeded 2x the estimated time
+                if timer > estimatedTimeInSeconds * 2 then
+                    timerActive = false
+                    DriveAwayFromPlayer()
+                    TriggerServerEvent('vibes-ems:notify', "The medic got stuck. Sending another one.", "error", true)
+                    SpawnVehicle() -- Spawn a new vehicle
+                end
+
+                -- Check if the vehicle has arrived
+                if #(GetEntityCoords(mechVeh) - playerCoords) < 5.0 then
+                    timerActive = false
+                    DoctorNPC()
+                end
+            end
+        end)
+
+        -- Display distance and ETA to the player
+        TriggerServerEvent('vibes-ems:notify', string.format("Distance: %.2f miles, ETA: %.2f minutes", distanceInMiles, estimatedTimeInSeconds / 60), "info", true)
     end
 end
 

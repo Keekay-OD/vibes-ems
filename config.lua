@@ -19,8 +19,8 @@ Config.Vehicle = "ambulance"  -- Default vehicle, Use emergency vehicle or it wi
 
 -- List of possible vehicle spawns- Hospitals parking spots are a good place to spawn vehicles
 Config.VehicleSpawns = {
-    "343.96, -1470.12, 29.27, 228.92", --ls medical center
-    "1842.74, 3705.44, 33.61, 30.44", -- sandy shores medical center
+    "344.038, -628.424, 29.294, 250.645", --Pilllbox Hill Medical Center
+    "1784.914, 3661.793, 34.216, 303.258", -- sandy shores medical center
 }
 
 
